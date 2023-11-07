@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gez/constants.dart';
+import 'package:git/constants.dart';
 import 'colors.dart';
 
 class MenuPage extends StatelessWidget {
@@ -9,16 +9,11 @@ class MenuPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: backgroundColor,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                buildIconsTop(context),
-                buildUserGreeting(),
-                buildBalanceSection(),
-                buildAddBalanceButton(),
-              ],
-            ),
+          child: Column(
+            children: [
+              buildIconsTop(context),
+              buildCardBalance(),
+            ],
           ),
         ),
       ),
@@ -43,83 +38,110 @@ class MenuPage extends StatelessWidget {
     );
   }
 
-  Widget buildUserGreeting() {
-    return Row(
-      children: [
-        Text(
-          'Merhaba Gökbörü Efe',
-          style: TextStyle(
-            color: secondaryColor,
-            fontSize: 26,
-          ),
-        ),
-        SizedBox(width: 5),
-        Icon(
-          Icons.verified,
-          color: primaryColor,
-        ),
-      ],
-    );
-  }
-
-  Widget buildBalanceSection() {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Git Wallet Balance',
-              style: TextStyle(
-                color: secondaryColor,
-              ),
-            ),
-            Row(
+  Widget buildCardBalance() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 5, bottom: 10),
+            child: Row(
               children: [
                 Text(
-                  'Details',
+                  'Hello Gökbörü Efe',
                   style: TextStyle(
-                    color: primaryColor,
+                    color: whiteColor,
+                    fontSize: 26,
                   ),
                 ),
+                SizedBox(width: 5),
                 Icon(
-                  Icons.keyboard_arrow_right_outlined,
-                  color: primaryColor,
+                  Icons.verified,
+                  color: secondaryColor,
                 ),
               ],
             ),
-          ],
-        ),
-        Row(
-          children: [
-            Text(
-              '₺ 0.00',
-              style: TextStyle(fontSize: 28, color: secondaryColor),
+          ),
+          Card(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget buildAddBalanceButton() {
-    return Container(
-      height: 50,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.plus_one),
-            SizedBox(
-              width: 5,
+            color: primaryColor,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Git Wallet Balance',
+                            style: TextStyle(
+                              color: whiteColor,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Details',
+                                style: TextStyle(
+                                  color: secondaryColor,
+                                ),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_right_outlined,
+                                color: secondaryColor,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            '₺ 0.00',
+                            style: TextStyle(fontSize: 28, color: whiteColor),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: secondaryColor,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.add),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Add balance',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text('Add balance'),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

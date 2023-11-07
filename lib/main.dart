@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gez/home_page.dart';
+import 'package:git/home_page.dart';
 
 void main() {
   runApp(MyApp());

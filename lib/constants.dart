@@ -43,3 +43,34 @@ Widget customIconButtonBack(IconData icon, {required Function() onPressed}) {
     ),
   );
 }
+
+Widget customIconTextButton() {
+  return Padding(
+    padding: const EdgeInsets.all(20),
+    child: Container(
+      height: 40,
+      width: 200,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          shadowColor: secondaryColor,
+        ),
+        onPressed: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.qr_code_scanner, color: secondaryColor),
+            SizedBox(width: 10),
+            Text(
+              'Start Driving',
+              style: TextStyle(color: secondaryColor, fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
