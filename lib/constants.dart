@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git/home_page.dart';
 import 'colors.dart';
 
 Widget customIconButton(IconData icon, {required Function() onPressed}) {
@@ -44,7 +45,7 @@ Widget customIconButtonBack(IconData icon, {required Function() onPressed}) {
   );
 }
 
-Widget customIconTextButton() {
+Widget customIconTextButton(context) {
   return Padding(
     padding: const EdgeInsets.all(20),
     child: Container(
@@ -58,7 +59,14 @@ Widget customIconTextButton() {
           ),
           shadowColor: secondaryColor,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => startDriving(),
+            ),
+          );
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -71,6 +79,27 @@ Widget customIconTextButton() {
           ],
         ),
       ),
+    ),
+  );
+}
+
+Widget menuItems({Function()? onTap, Widget? leading, String title = 'Title'}) {
+  return Container(
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: whiteColor,
+        width: 0.1,
+        style: BorderStyle.solid,
+      ),
+    ),
+    child: ListTile(
+      iconColor: whiteColor,
+      leading: leading ?? Icon(Icons.input),
+      title: Text(
+        title,
+        style: TextStyle(color: whiteColor),
+      ),
+      onTap: onTap,
     ),
   );
 }

@@ -6,35 +6,38 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: backgroundColor,
-          child: Column(
-            children: [
-              buildIconsTop(context),
-              buildCardBalance(),
-            ],
-          ),
+      body: Container(
+        color: backgroundColor,
+        child: Column(
+          children: [
+            buildIconsTop(context),
+            buildCardBalance(),
+            buildMenuItems(),
+            buildVersion()
+          ],
         ),
       ),
     );
   }
 
   Widget buildIconsTop(context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        customIconButtonBack(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          Icons.arrow_back_ios_new,
-        ),
-        customIconButton(
-          Icons.notifications,
-          onPressed: () {},
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          customIconButtonBack(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            Icons.arrow_back_ios_new,
+          ),
+          customIconButton(
+            Icons.notifications,
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 
@@ -142,6 +145,81 @@ class MenuPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildMenuItems() {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Card(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          color: primaryColor,
+          child: ListView(
+            children: [
+              menuItems(
+                leading: Icon(Icons.perm_phone_msg),
+                title: 'Contact Us',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.wallet),
+                title: 'Git Wallet',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.announcement),
+                title: 'Promos',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.card_giftcard),
+                title: 'Invite to TAG, Get Discount!',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.money),
+                title: 'Send Git Balance to Friend',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.history),
+                title: 'Ride History',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.verified),
+                title: 'Ride Guidelines',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.question_mark),
+                title: 'FAQ',
+                onTap: () {},
+              ),
+              menuItems(
+                leading: Icon(Icons.settings),
+                title: 'Settings',
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildVersion() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Text(
+        'Git v1.0.0',
+        style: TextStyle(color: whiteColor),
       ),
     );
   }
