@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git/colors.dart';
 import 'package:git/constants.dart';
 import 'package:git/menu.dart';
 
@@ -23,7 +24,9 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   customIconButtonBack(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     Icons.arrow_back_ios_new,
                   ),
                   customIconButton(
@@ -73,28 +76,28 @@ class HomePage extends StatelessWidget {
       ),
       builder: (BuildContext context) {
         return Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(width: 50),
+                  const SizedBox(width: 50),
                   Image.asset(
                     'lib/assets/images/git_logo_pink.png',
                     width: 150,
                   ),
                   IconButton(
                     iconSize: 30,
-                    icon: Icon(Icons.close),
+                    icon: const Icon(Icons.close),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
@@ -103,7 +106,7 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
@@ -125,13 +128,13 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 height: 0.5,
                 color: Colors.black.withOpacity(0.5),
                 width: 200,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         );
@@ -150,34 +153,34 @@ class HomePage extends StatelessWidget {
       ),
       builder: (BuildContext context) {
         return Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(width: 50),
+                  const SizedBox(width: 50),
                   Image.asset(
                     'lib/assets/images/git_logo_pink.png',
                     width: 150,
                   ),
                   IconButton(
                     iconSize: 30,
-                    icon: Icon(Icons.close),
+                    icon: const Icon(Icons.close),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                 'Thank You',
                 style: TextStyle(color: Color(0xFFbe72bd), fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
@@ -186,7 +189,7 @@ class HomePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         );
@@ -195,12 +198,13 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class startDriving extends StatelessWidget {
-  const startDriving({super.key});
+class StartDriving extends StatelessWidget {
+  const StartDriving({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: null,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 100),
@@ -213,7 +217,10 @@ class startDriving extends StatelessWidget {
                 width: 300,
               ),
               Container(
-                child: Text('QR CODE HERE'),
+                child: Text(
+                  'QR CODE HERE',
+                  style: TextStyle(color: secondaryColor),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -222,22 +229,22 @@ class startDriving extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios_new),
+                    icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
                   ),
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios_new),
+                    icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
                   ),
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios_new),
+                    icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

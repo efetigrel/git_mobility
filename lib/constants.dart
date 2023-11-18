@@ -30,9 +30,9 @@ Widget customIconButton(IconData icon, {required Function() onPressed}) {
 
 Widget customIconButtonBack(IconData icon, {required Function() onPressed}) {
   return Padding(
-    padding: EdgeInsets.all(20),
+    padding: const EdgeInsets.all(20),
     child: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: IconButton(
@@ -53,7 +53,7 @@ Widget customIconTextButton(context) {
       width: 200,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
+          backgroundColor: whiteColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
@@ -63,7 +63,7 @@ Widget customIconTextButton(context) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => startDriving(),
+              builder: (context) => StartDriving(),
             ),
           );
         },
@@ -71,7 +71,7 @@ Widget customIconTextButton(context) {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.qr_code_scanner, color: secondaryColor),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
               'Start Driving',
               style: TextStyle(color: secondaryColor, fontSize: 18),
@@ -94,7 +94,7 @@ Widget menuItems({Function()? onTap, Widget? leading, String title = 'Title'}) {
     ),
     child: ListTile(
       iconColor: whiteColor,
-      leading: leading ?? Icon(Icons.input),
+      leading: leading ?? const Icon(Icons.input),
       title: Text(
         title,
         style: TextStyle(color: whiteColor),

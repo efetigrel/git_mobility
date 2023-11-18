@@ -57,7 +57,7 @@ class MenuPage extends StatelessWidget {
                     fontSize: 26,
                   ),
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Icon(
                   Icons.verified,
                   color: secondaryColor,
@@ -163,47 +163,47 @@ class MenuPage extends StatelessWidget {
           child: ListView(
             children: [
               menuItems(
-                leading: Icon(Icons.perm_phone_msg),
+                leading: const Icon(Icons.perm_phone_msg),
                 title: 'Contact Us',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.wallet),
+                leading: const Icon(Icons.wallet),
                 title: 'Git Wallet',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.announcement),
+                leading: const Icon(Icons.announcement),
                 title: 'Promos',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.card_giftcard),
+                leading: const Icon(Icons.card_giftcard),
                 title: 'Invite to TAG, Get Discount!',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.money),
+                leading: const Icon(Icons.money),
                 title: 'Send Git Balance to Friend',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.history),
+                leading: const Icon(Icons.history),
                 title: 'Ride History',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.verified),
+                leading: const Icon(Icons.verified),
                 title: 'Ride Guidelines',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.question_mark),
+                leading: const Icon(Icons.question_mark),
                 title: 'FAQ',
                 onTap: () {},
               ),
               menuItems(
-                leading: Icon(Icons.settings),
+                leading: const Icon(Icons.settings),
                 title: 'Settings',
                 onTap: () {},
               ),
