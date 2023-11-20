@@ -25,38 +25,41 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildLogoAndHeaderText(),
-              const SizedBox(height: 80),
-              _buildPhoneNumberInput(),
-              const SizedBox(height: 80),
-              _buildBottomTextAndButton(),
-            ],
-          ),
-        ),
+      resizeToAvoidBottomInset: false,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildLogoAndHeaderText(),
+          _buildPhoneNumberInput(),
+          _buildBottomTextAndButton(),
+        ],
       ),
     );
   }
 
   Widget _buildLogoAndHeaderText() {
     return Padding(
-      padding: const EdgeInsets.only(top: 100),
-      child: Column(
-        children: [
-          Image.asset('lib/assets/images/git_logo_pink.png', width: 250),
-          const SizedBox(height: 30),
-          Text('Enter Your Phone Number',
-              style: TextStyle(color: secondaryColor, fontSize: 30)),
-          const SizedBox(height: 10),
-          Text('We will send a code to verify ',
-              style: TextStyle(color: fourthColor, fontSize: 25)),
-          Text('your phone', style: TextStyle(color: fourthColor, fontSize: 25))
-        ],
+      padding: const EdgeInsets.only(top: 50),
+      child: Center(
+        child: Column(
+          children: [
+            Image.asset('lib/assets/images/git_logo_pink.png', width: 250),
+            const SizedBox(height: 30),
+            Text(
+              'Enter Your Phone Number',
+              style: TextStyle(color: secondaryColor, fontSize: 25),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'We will send a code to verify ',
+              style: TextStyle(color: fourthColor, fontSize: 20),
+            ),
+            Text(
+              'your phone',
+              style: TextStyle(color: fourthColor, fontSize: 20),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -65,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextField(
             controller: _phoneNumberController,
             keyboardType: TextInputType.phone,
