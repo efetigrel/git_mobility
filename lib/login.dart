@@ -47,16 +47,22 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 30),
             Text(
               'Enter Your Phone Number',
-              style: TextStyle(color: secondaryColor, fontSize: 25),
+              style: TextStyle(
+                color: secondaryColor,
+                fontSize: 25,
+              ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
             Text(
-              'We will send a code to verify ',
+              'We will send a code to verify',
               style: TextStyle(color: fourthColor, fontSize: 20),
+              textAlign: TextAlign.center,
             ),
             Text(
               'your phone',
               style: TextStyle(color: fourthColor, fontSize: 20),
+              textAlign: TextAlign.center,
             )
           ],
         ),
@@ -94,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() => isChecked1 = value ?? false);
               },
               title:
-                  'Ive read the Privacy Notice and Ive read and accepted the Explicit Consent Form.',
+                  'I ve read the Privacy Notice and Ive read and accepted the Explicit Consent Form.',
             ),
             _buildCheckboxListTile(
               value: isChecked2,
@@ -121,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
         value: value,
         onChanged: onChanged,
       ),
-      title: Text(title, style: TextStyle(fontSize: 16)),
+      title: Text(title, style: const TextStyle(fontSize: 16)),
     );
   }
 
@@ -162,6 +168,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   bool _isValidPhoneNumber(String input) {
-    return input.length == 11;
+    return input.length == 9;
   }
 }
