@@ -199,7 +199,7 @@ class HomePage extends StatelessWidget {
 }
 
 class StartDriving extends StatelessWidget {
-  const StartDriving({super.key});
+  StartDriving({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -233,20 +233,91 @@ class StartDriving extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlateScreen(),
+                        ),
+                      );
                     },
-                    icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
+                    icon: Icon(Icons.abc, color: secondaryColor),
                   ),
                   IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
+                    onPressed: () {},
+                    icon: Icon(Icons.flash_on, color: secondaryColor),
                   ),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class PlateScreen extends StatefulWidget {
+  @override
+  _PlateScreenState createState() => _PlateScreenState();
+}
+
+class _PlateScreenState extends State<PlateScreen> {
+  TextEditingController _plateController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 100),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset(
+              'lib/assets/images/git_logo_pink.png',
+              width: 300,
+            ),
+            Row(
+              children: [
+                Icon(Icons.qr_code, color: secondaryColor),
+                SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    cursorColor: secondaryColor,
+                    controller: _plateController,
+                    decoration: InputDecoration(
+                      labelText: 'Plate',
+                      labelStyle: TextStyle(color: secondaryColor),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: secondaryColor, width: 1),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.arrow_back_ios_new, color: secondaryColor),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.qr_code, color: secondaryColor),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.send, color: secondaryColor),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

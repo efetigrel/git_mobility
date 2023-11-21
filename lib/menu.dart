@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git/add_balance.dart';
 import 'package:git/constants.dart';
 import 'colors.dart';
 
@@ -13,7 +14,7 @@ class MenuPage extends StatelessWidget {
             buildIconsTop(context),
             buildCardBalance(context),
             buildMenuItems(),
-            buildVersion()
+            buildVersion(),
           ],
         ),
       ),
@@ -152,7 +153,7 @@ class MenuPage extends StatelessWidget {
                         Text(
                           'Add Balance',
                           style: TextStyle(fontSize: 18),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -242,7 +243,7 @@ class MenuPage extends StatelessWidget {
 }
 
 class Notifications extends StatelessWidget {
-  const Notifications({super.key});
+  const Notifications({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -264,190 +265,7 @@ class Notifications extends StatelessWidget {
               'Notification',
               style: TextStyle(fontSize: 22, color: secondaryColor),
             ),
-            const Padding(
-              padding: const EdgeInsets.only(right: 75),
-              child: SizedBox(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class AddBalance extends StatefulWidget {
-  const AddBalance({Key? key}) : super(key: key);
-
-  @override
-  _AddBalanceState createState() => _AddBalanceState();
-}
-
-class _AddBalanceState extends State<AddBalance> {
-  bool isChecked = false;
-  bool isSwitched = false;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: null,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 30),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customIconButtonBack(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  Icons.arrow_back_ios_new,
-                ),
-                Text(
-                  'Add Balance',
-                  style: TextStyle(fontSize: 22, color: secondaryColor),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 75),
-                  child: SizedBox(),
-                ),
-              ],
-            ),
-            const Text('Balance'),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: Text(
-                '₺0.00',
-                style: TextStyle(
-                    color: secondaryColor,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            const Text('Select amount to reload Git Wallet'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Card(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 35, horizontal: 35),
-                    child: Text(
-                      '₺50',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: secondaryColor,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 28, horizontal: 25),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Most Popular',
-                          style: TextStyle(color: whiteColor),
-                        ),
-                        Text(
-                          '₺100',
-                          style: TextStyle(
-                              color: whiteColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Card(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 35, horizontal: 35),
-                    child: Text(
-                      '₺200',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Row(
-                  children: [
-                    Icon(Icons.credit_card, size: 45, color: Colors.black54),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Column(
-                      children: [
-                        Text('GÖKBÖRÜ EFE TIĞREL'),
-                        Text('**** **** **** 1234')
-                      ],
-                    ),
-                  ],
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      isChecked = !isChecked;
-                    });
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.zero,
-                    child: Text(
-                      'Change',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  value: isChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked = value ?? false;
-                    });
-                  },
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'I confirm that I ve read and agree to',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: const Padding(
-                        padding: EdgeInsets.zero,
-                        child: Text(
-                          'Wallet Agreement',
-                          style: TextStyle(fontSize: 16, color: Colors.blue),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Auto Relaod'),
-                Switch(
-                  value: isSwitched,
-                  onChanged: (value) {
-                    setState(() {
-                      isSwitched = value;
-                    });
-                  },
-                )
-              ],
-            )
+            const SizedBox(width: 75),
           ],
         ),
       ),
